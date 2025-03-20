@@ -1,0 +1,87 @@
+body{
+  background: whitesmoke;
+}
+.header{
+    position: relative;
+   height: 100vh;
+   
+  }
+.navbar{
+  background: orange!important;
+}
+  .header img{
+    height: 80vh;
+   overflow: hidden;
+  }
+  .navbar{
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .service-container{
+    height: 100vh;
+    border-radius: 10px;
+    border-radius: 20px;
+  }
+
+   /* service card css  */
+  .service{
+    
+    transition: transform 2s ease-in-out;
+
+  }
+.service:hover{
+  transform: translateY(-20px);
+}
+
+.service p{
+  font-size: 1.2rem;
+ 
+  color: white;
+}
+.card{
+  height: 300px !important;
+}
+
+
+  /* footer css  */
+.footer{
+  background-color: orange;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 30vh;
+ 
+}
+.footer h2{
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.footer h1{
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.footer ul{
+  list-style-type: none;
+  font-weight: bold;
+}
+
+.footer p{
+  color: rgb(10, 8, 8);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* about us section css */
+.about{
+  height: 28rem;
+  border-radius: 10px;
+  border-radius: 20px;
+  background-color: whitesmoke;
+  padding: 10px;
+}
+.about-img img{
+
+  border-radius: 20px;
+}
