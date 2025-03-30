@@ -44,11 +44,12 @@ function App() {
   const [ride ,setRide]=useState(null);
   const [fare ,setFare]=useState(null);
   const [cab ,setCab]=useState({
-    pickupDate:'',
-    pickupTime:'',
-    pickupLocation:'',
-    dropLocation:'',
+    pickup_time:'',
+    pickup_date:'',
+    pickup_location:'',
+    drop_location:'',
     cabType:'',
+    client_name:''
   });
   const distances ={
     "Nagpur": 10,
@@ -74,6 +75,7 @@ function App() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('user');
   }
   const handleChange = (e) => {
     setFormdata({ ...formdata, [e.target.name]: e.target.value });

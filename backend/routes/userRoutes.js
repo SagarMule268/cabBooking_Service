@@ -1,12 +1,12 @@
 const express = require('express');
-const UserModel = require('../model/userModel');
+const authenticateUser = require('../middleware/authmiddleware');
 const router = express.Router();
-const {addUsers,getAllUsers ,getUserById ,loginUser } = require('../controller/userController');
-
+const {addUsers,getAllUsers ,getUserById ,loginUser ,logoutUser } = require('../controller/userController');
 router.route('/').get(getAllUsers).post(addUsers);
 router.route('/:id').get(getUserById);
 router.route('/login').post(loginUser);
-
+router.route('/logout').post(logoutUser);
+router.get('/me',authenticateUser , getUserById);
 module.exports = router;
 // The code snippet above is a router that handles the user routes. 
 // It imports the user model and the user controller functions. 

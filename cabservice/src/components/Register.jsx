@@ -5,6 +5,7 @@ const Register = ({handleChange , handleSubmit}) => {
     <div className='login' style={{height:"550px"}}>
             <h1>Register </h1>
         <div className='form-container'>
+               
               <form id='register'>
                   <div className='input-group'>
                     <input type='text' id="name" name='name' placeholder='' required onChange={handleChange} />

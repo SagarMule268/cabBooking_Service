@@ -9,14 +9,13 @@ const Login = ({ setIsAuthenticated , setLoginData ,loginData ,setUser}) => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/user/login', loginData);
-      setUser(res.data.data);
+      const res = await axios.post('http://localhost:5000/api/user/login',loginData, {withCredentials:true});
+      setUser(res.data.user);
       console.log( "Data from the backend : ",res.data.data);
       
       setIsAuthenticated(true);
-      localStorage.setItem('isAuthenticated', true);
       alert('User Logged In Successfully!');
-      navigate('/dashboard');
+      navigate('/dashboard')
      
     } catch (error) {
       console.log(error);
