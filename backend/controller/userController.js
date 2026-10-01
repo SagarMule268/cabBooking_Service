@@ -47,16 +47,20 @@ const addUsers = async (req, res) => {
 
 const getUserById =async(req,res)=>{
     try{
-    //     const token = req.cookies.authToken;
-    //     if(!token){
-    //        return res.status(401).json({ message: "Unauthorized - No Token" });
+        const token = req.cookies.authToken;
+        if(!token){
+           return res.status(401).json({ message: "Unauthorized - No Token" });
 
-    //     }
-    //     // Verify Token
-    //     const decoded = jwt.verify(token,process.env.SECRET_KEY);
-    //     const user = await userModel.findById(decoded.id).select("-password");
-
-        res.status(200).json(req.user);
+        }
+        // Verify Token
+        const decoded = jwt.verify(token,process.env.SECRET_KEY);
+        console.log(decoded)
+        const user = await userModel.findById(decoded.userId).select("-password");
+        console.log(decoded.userId);
+        if(!user){
+            return res.status(404).json({ message: "User Not Found" });
+        }
+        res.status(200).json({user});
     }
     catch(error){
         res.status(500).json({

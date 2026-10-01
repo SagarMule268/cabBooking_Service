@@ -5,13 +5,17 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import UserDashboard from './components/UserDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import BookRide from './components/BookRide';
 import ViewFare from './components/ViewFare';
 function App() {
+
+  useEffect(()=>{
+
+  },[]);
   function calculateFare(distance, time, cabType) {
     const baseFares = {
         mini: 40,   // Base fare for Mini
@@ -81,14 +85,19 @@ function App() {
     setFormdata({ ...formdata, [e.target.name]: e.target.value });
   }
 
-  const handleSubmit =async (e) => {
+  const handleSubmit =async (e , navigate) => {
     const register = document.getElementById('register');
     e.preventDefault();
     try {
       const res = await axios.post('http://localhost:5000/api/user/', formdata);
+      if (res.status === 200) {
+        alert('User Registered Successfully!');
+      }
       console.log(res.data);
       alert('User Registered Successfully!');
       register.reset();
+      navigate('/login');
+      
     } catch (error) {
       console.log(error);
     }

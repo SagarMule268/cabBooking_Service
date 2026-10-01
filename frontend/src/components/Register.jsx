@@ -1,12 +1,14 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom';
 const Register = ({handleChange , handleSubmit}) => {
+  const navigate =useNavigate();
+
   return (
     <div className='login' style={{height:"550px"}}>
             <h1>Register </h1>
         <div className='form-container'>
                
-              <form id='register'>
+              <form id='register' onSubmit={(e)=>{handleSubmit(e,navigate)}} >
                   <div className='input-group'>
                     <input type='text' id="name" name='name' placeholder='' required onChange={handleChange} />
                     <label htmlFor='name'>Name</label>
@@ -29,7 +31,7 @@ const Register = ({handleChange , handleSubmit}) => {
                   </div>
                   
                   <div className='input-group text-center'>
-                    <button onClick={handleSubmit}>Submit</button>
+                    <button type='submit' >Submit</button>
                   </div>
                  
               </form>
